@@ -33,7 +33,7 @@ function ProductDetailsPage() {
       async function handleDelete(){
         try{
              await deleteProductById(id)
-            Navigate('/products')
+            navigate('/products')
         }catch(err){
             setError(err.response.data.message)
         }
@@ -43,6 +43,9 @@ function ProductDetailsPage() {
   if (error) {
     return <p className="error">Error: {error}</p>;
   }
+  if (!product) {
+  return <p>No product found</p>;
+}
   return (
 
     <div>
